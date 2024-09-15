@@ -1,5 +1,7 @@
 export async function createGoalCompletion(goalId: string) {
-  await fetch('http://localhost:3333/completions', {
+  const webService = import.meta.env.VITE_WEBSERVICE_URL
+
+  await fetch(`${webService}/completions`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',

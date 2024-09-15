@@ -12,7 +12,8 @@ type SummaryResponse = {
 }
 
 export async function getSummary(): Promise<SummaryResponse> {
-  const response = await fetch('http://localhost:3333/summary')
+  const webService = import.meta.env.VITE_WEBSERVICE_URL
+  const response = await fetch(`${webService}/summary`)
   const data = await response.json()
 
   return data.summary

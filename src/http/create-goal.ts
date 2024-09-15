@@ -7,7 +7,8 @@ export async function createGoal({
   title,
   desiredWeeklyFrequency,
 }: CreateGoalRequest) {
-  await fetch('http://localhost:3333/goals', {
+  const webService = import.meta.env.VITE_WEBSERVICE_URL
+  await fetch(`${webService}/goals`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
