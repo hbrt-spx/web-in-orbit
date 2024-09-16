@@ -12,6 +12,8 @@ import { PendingGoals } from './ui/pending-goals'
 
 dayjs.locale('pt-br')
 
+const currentDate = new Date()
+
 export function Summary() {
   const { data } = useQuery({
     queryKey: ['summary'],
@@ -70,8 +72,12 @@ export function Summary() {
         {data.goalsPerDay &&
           Object.keys(data.goalsPerDay).length > 0 &&
           Object.entries(data.goalsPerDay).map(([date, goals]) => {
-            const weekDay = dayjs(date).format('dddd')
-            const formattedDate = dayjs(date).format('D[ de ]MMMM')
+            const weekDay = dayjs(currentDate.toLocaleDateString()).format(
+              'dddd'
+            )
+            const formattedDate = dayjs(
+              currentDate.toLocaleDateString()
+            ).format('D[ de ]MMMM')
             return (
               <div key={date} className="flex flex-col gap-4">
                 <h3 className="font-medium">
