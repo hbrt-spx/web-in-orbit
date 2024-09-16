@@ -12,8 +12,6 @@ import { PendingGoals } from './ui/pending-goals'
 
 dayjs.locale('pt-br')
 
-const currentDate = new Date()
-
 export function Summary() {
   const { data } = useQuery({
     queryKey: ['summary'],
