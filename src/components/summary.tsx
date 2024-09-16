@@ -13,12 +13,6 @@ import { PendingGoals } from './ui/pending-goals'
 dayjs.locale('pt-br')
 
 const currentDate = new Date()
-const options = {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-  weekly: 'long',
-}
 
 export function Summary() {
   const { data } = useQuery({
