@@ -12,7 +12,6 @@ import '../../node_modules/dayjs/locale/pt-br'
 import { PendingGoals } from './ui/pending-goals'
 
 dayjs.locale('pt-br')
-dayjs.extend(utc)
 
 export function Summary() {
   const { data } = useQuery({
