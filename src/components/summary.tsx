@@ -53,7 +53,7 @@ export function Summary() {
         <div className="flex items-center justify-between text-xs text-zinc-400">
           <span>
             Você completou{' '}
-            <span className="text-zinc-100">{data?.completed}</span> de
+            <span className="text-zinc-100">{data?.completed}</span> de{' '}
             <span className="text-zinc-100">{data?.total}</span> metas nessa
             semana.
           </span>

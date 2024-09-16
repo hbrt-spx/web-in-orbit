@@ -144,7 +144,7 @@ export function CreateGoal() {
                       <RadioGroupItem value="7">
                         <RadioGroupIndicator />
                         <span className="text-zinc-300 text-sm font-medium leading-none">
-                          7x na semana
+                          Todos os dias da semana
                         </span>
                         <span className="text-sm leading-none">🔥</span>
                       </RadioGroupItem>
