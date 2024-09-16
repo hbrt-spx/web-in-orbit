@@ -34,7 +34,7 @@ export function Summary() {
         <div className="flex items-center gap-3">
           <InOrbitIcon />
         </div>
-        <span className="text-lg font-semibold capitalize">
+        <span className="text-lg font-semibold">
           {fristDayOfWeek} - {lastDayOfWeek}
         </span>
         <DialogTrigger asChild>
@@ -57,7 +57,7 @@ export function Summary() {
             <span className="text-zinc-100">{data?.total}</span> metas nessa
             semana.
           </span>
-          <span>{completedPercentage}%</span>
+          <span>{completedPercentage.toFixed(2)}%</span>
         </div>
         <Separator />
 
