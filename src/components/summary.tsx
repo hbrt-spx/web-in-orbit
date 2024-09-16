@@ -71,7 +71,7 @@ export function Summary() {
           Object.keys(data.goalsPerDay).length > 0 &&
           Object.entries(data.goalsPerDay).map(([date, goals]) => {
             const weekDay = dayjs(date).format('dddd')
-            const formattedDate = dayjs(date).format('DD:mm')
+            const formattedDate = dayjs(date).format('D[ de ]MMMM')
             return (
               <div key={date} className="flex flex-col gap-4">
                 <h3 className="font-medium">
