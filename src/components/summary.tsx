@@ -29,7 +29,7 @@ export function Summary() {
   const completedPercentage = Math.round(data.completed * 100) / data?.total
 
   return (
-    <div className="py-10 max-w-[480] px-5 mx-auto flex flex-col gap-6">
+    <div className="py-10 max-w-[480px] px-5 mx-auto flex flex-col gap-6">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <InOrbitIcon />
@@ -59,11 +59,10 @@ export function Summary() {
           </span>
           <span>{completedPercentage}%</span>
         </div>
+        <Separator />
+
+        <PendingGoals />
       </div>
-
-      <Separator />
-
-      <PendingGoals />
 
       <div className=" flex flex-col gap-6">
         <h2 className=" text-xl font-medium">Sua semana</h2>
