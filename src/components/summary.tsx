@@ -33,10 +33,10 @@ export function Summary() {
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <InOrbitIcon />
+          <span className="text-lg font-semibold capitalize">
+            {fristDayOfWeek} - {lastDayOfWeek}
+          </span>
         </div>
-        <span className="text-lg font-semibold">
-          {fristDayOfWeek} - {lastDayOfWeek}
-        </span>
         <DialogTrigger asChild>
           <Button size="sm">
             <Plus className="size-4" />
