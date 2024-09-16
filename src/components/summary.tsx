@@ -7,11 +7,12 @@ import { Separator } from './ui/separator'
 import { useQuery } from '@tanstack/react-query'
 import { getSummary } from '../http/get-summary'
 import dayjs from 'dayjs'
-import utc from 'dayjs/plugin/utc'
+import '../../node_modules/dayjs/plugin/utc'
 import '../../node_modules/dayjs/locale/pt-br'
 import { PendingGoals } from './ui/pending-goals'
 
 dayjs.locale('pt-br')
+dayjs.extend(utc)
 
 export function Summary() {
   const { data } = useQuery({
