@@ -70,15 +70,13 @@ export function Summary() {
         {data.goalsPerDay &&
           Object.keys(data.goalsPerDay).length > 0 &&
           Object.entries(data.goalsPerDay).map(([date, goals]) => {
-            const weekDay = dayjs(date).subtract(3, 'hours').format('dddd')
-            const formattedDate = dayjs(date)
-              .subtract(3, 'hours')
-              .format('D[ de ]MMMM')
+            const weekDay = dayjs(date).format('dddd')
+            const formattedDate = dayjs(date).format('D[ de ]MMMM')
             return (
               <div key={date} className="flex flex-col gap-4">
                 <h3 className="font-medium">
                   <span className="capitalize">{weekDay} </span>
-                  <span className="text-zinc-400 text-xs">
+                  <span className="text-zinc-400 text-xm">
                     ({formattedDate})
                   </span>
                 </h3>
@@ -86,6 +84,7 @@ export function Summary() {
                 <ul className="flex flex-col gap-3">
                   {goals.map(goal => {
                     const time = dayjs(goal.completedAt).format('HH:mm')
+
                     return (
                       <li key={goal.id} className="flex items-center gap-2">
                         <CheckCircle2 className="size-4 text-pink-500" />
