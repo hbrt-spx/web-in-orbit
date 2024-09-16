@@ -7,6 +7,7 @@ import { Separator } from './ui/separator'
 import { useQuery } from '@tanstack/react-query'
 import { getSummary } from '../http/get-summary'
 import dayjs from 'dayjs'
+import utc from 'dayjs/plugin/utc'
 import '../../node_modules/dayjs/locale/pt-br'
 import { PendingGoals } from './ui/pending-goals'
 
@@ -70,8 +71,11 @@ export function Summary() {
         {data.goalsPerDay &&
           Object.keys(data.goalsPerDay).length > 0 &&
           Object.entries(data.goalsPerDay).map(([date, goals]) => {
-            const weekDay = dayjs(date).format('dddd')
-            const formattedDate = dayjs(date).format('D[ de ]MMMM')
+            const weekDay = dayjs(date).utc().local().format('dddd')
+            const formattedDate = dayjs(date)
+              .utc()
+              .local()
+              .format('D[ de ]MMMM')
             return (
               <div key={date} className="flex flex-col gap-4">
                 <h3 className="font-medium">
