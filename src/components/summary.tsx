@@ -4,15 +4,17 @@ import { DialogTrigger } from './ui/dialog'
 import { InOrbitIcon } from './in-orbit-icon'
 import { Progress, ProgressIndicator } from './ui/progress-bar'
 import { Separator } from './ui/separator'
-import { useQuery } from '@tanstack/react-query'
+import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { getSummary } from '../http/get-summary'
 import dayjs from 'dayjs'
 import '../../node_modules/dayjs/locale/pt-br'
 import { PendingGoals } from './ui/pending-goals'
+import { deleteGoalCompletion } from '../http/delete-goal-completion'
 
 dayjs.locale('pt-br')
 
 export function Summary() {
+  const queryClient = useQueryClient()
   const { data } = useQuery({
     queryKey: ['summary'],
     queryFn: getSummary,
@@ -21,6 +23,13 @@ export function Summary() {
 
   if (!data) {
     return null
+  }
+
+  async function handleDeleteGoalCompletion(goalId: string) {
+    await deleteGoalCompletion(goalId)
+
+    queryClient.invalidateQueries({ queryKey: ['summary'] })
+    queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
   }
 
   const fristDayOfWeek = dayjs().startOf('week').format('D MMM')
@@ -93,6 +102,13 @@ export function Summary() {
                           <span className="text-zinc-100">{goal.title}</span>"
                           às <span className="text-zinc-100">{time}h</span>
                         </span>
+                        <Button
+                          key={goal.id}
+                          onClick={() => handleDeleteGoalCompletion(goal.id)}
+                          className=" w-0 h-1 rounded-full border-[1px] border-violet-400 bg-transparent text-violet-400 hover:bg-transparent hover:border-violet-600 hover:text-violet-600"
+                        >
+                          x
+                        </Button>
                       </li>
                     )
                   })}
