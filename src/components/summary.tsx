@@ -29,6 +29,7 @@ export function Summary() {
     await deleteGoalCompletion(goalId)
 
     queryClient.invalidateQueries({ queryKey: ['summary'] })
+    queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
   }
 
   const fristDayOfWeek = dayjs().startOf('week').format('D MMM')
