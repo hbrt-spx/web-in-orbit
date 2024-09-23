@@ -103,8 +103,10 @@ export function Summary() {
                           às <span className="text-zinc-100">{time}h</span>
                         </span>
                         <Button
-                          key={goal.id}
-                          onClick={() => handleDeleteGoalCompletion(goal.id)}
+                          key={goal.goalCompletionId}
+                          onClick={() =>
+                            handleDeleteGoalCompletion(goal.goalCompletionId)
+                          }
                           className=" w-0 h-1 rounded-full border-[1px] border-violet-400 bg-transparent text-violet-400 hover:bg-transparent hover:border-violet-600 hover:text-violet-600"
                         >
                           x

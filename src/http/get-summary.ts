@@ -7,6 +7,7 @@ type SummaryResponse = {
       id: string
       title: string
       completedAt: string
+      goalCompletionId: string
     }[]
   >
 }
