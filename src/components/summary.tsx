@@ -7,11 +7,11 @@ import { Separator } from './ui/separator'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { getSummary } from '../http/get-summary'
 import dayjs from 'dayjs'
-import '../../node_modules/dayjs/locale/pt-br'
+//import '../../node_modules/dayjs/locale/pt-br'
 import { PendingGoals } from './ui/pending-goals'
 import { deleteGoalCompletion } from '../http/delete-goal-completion'
 
-dayjs.locale('pt-br')
+//dayjs.locale('pt-br')
 
 export function Summary() {
   const queryClient = useQueryClient()
@@ -25,8 +25,8 @@ export function Summary() {
     return null
   }
 
-  async function handleDeleteGoalCompletion(id: string) {
-    await deleteGoalCompletion(id)
+  async function handleDeleteGoalCompletion(goalCompletionId: string) {
+    await deleteGoalCompletion(goalCompletionId)
 
     queryClient.invalidateQueries({ queryKey: ['summary'] })
     queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
