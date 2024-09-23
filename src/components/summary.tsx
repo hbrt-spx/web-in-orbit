@@ -25,8 +25,8 @@ export function Summary() {
     return null
   }
 
-  async function handleDeleteGoalCompletion(goalId: string) {
-    await deleteGoalCompletion(goalId)
+  async function handleDeleteGoalCompletion(id: string) {
+    await deleteGoalCompletion(id)
 
     queryClient.invalidateQueries({ queryKey: ['summary'] })
     queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
