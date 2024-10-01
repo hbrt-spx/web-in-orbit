@@ -25,8 +25,8 @@ export function Summary() {
     return null
   }
 
-  async function handleDeleteGoalCompletion(goalCompletionId: string) {
-    await deleteGoalCompletion(goalCompletionId)
+  async function handleDeleteGoalCompletion(id: string) {
+    await deleteGoalCompletion(id)
 
     queryClient.invalidateQueries({ queryKey: ['summary'] })
     queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
@@ -93,6 +93,7 @@ export function Summary() {
                 <ul className="flex flex-col gap-3">
                   {goals.map(goal => {
                     const time = dayjs(goal.completedAt).format('HH:mm')
+                    console.log(goal.completionId)
 
                     return (
                       <li key={goal.id} className="flex items-center gap-2">
@@ -102,15 +103,15 @@ export function Summary() {
                           <span className="text-zinc-100">{goal.title}</span>"
                           às <span className="text-zinc-100">{time}h</span>
                         </span>
-                        <Button
-                          key={goal.goalCompletionId}
+                        {/* <Button
+                          key={goal.completionId}
                           onClick={() =>
-                            handleDeleteGoalCompletion(goal.goalCompletionId)
+                            handleDeleteGoalCompletion(goal.completionId)
                           }
                           className=" w-0 h-1 rounded-full border-[1px] border-violet-400 bg-transparent text-violet-400 hover:bg-transparent hover:border-violet-600 hover:text-violet-600"
                         >
                           x
-                        </Button>
+                        </Button> */}
                       </li>
                     )
                   })}

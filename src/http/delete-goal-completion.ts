@@ -1,4 +1,4 @@
-export async function deleteGoalCompletion(goalCompletionId: string) {
+export async function deleteGoalCompletion(completionId: string) {
   const webService = import.meta.env.VITE_WEBSERVICE_URL
 
   await fetch(`${webService}/delete-completions`, {
@@ -7,7 +7,7 @@ export async function deleteGoalCompletion(goalCompletionId: string) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({
-      goalCompletionId,
+      completionId,
     }),
   })
 }
