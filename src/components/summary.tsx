@@ -4,17 +4,16 @@ import { DialogTrigger } from './ui/dialog'
 import { InOrbitIcon } from './in-orbit-icon'
 import { Progress, ProgressIndicator } from './ui/progress-bar'
 import { Separator } from './ui/separator'
-import { useQuery, useQueryClient } from '@tanstack/react-query'
+import { useQuery } from '@tanstack/react-query'
 import { getSummary } from '../http/get-summary'
 import dayjs from 'dayjs'
 import '../../node_modules/dayjs/locale/pt-br'
 import { PendingGoals } from './ui/pending-goals'
-import { deleteGoalCompletion } from '../http/delete-goal-completion'
 
 dayjs.locale('pt-br')
 
 export function Summary() {
-  const queryClient = useQueryClient()
+  // const queryClient = useQueryClient()
   const { data } = useQuery({
     queryKey: ['summary'],
     queryFn: getSummary,
@@ -93,7 +92,6 @@ export function Summary() {
                 <ul className="flex flex-col gap-3">
                   {goals.map(goal => {
                     const time = dayjs(goal.completedAt).format('HH:mm')
-                    console.log(goal.completionId)
 
                     return (
                       <li key={goal.id} className="flex items-center gap-2">
