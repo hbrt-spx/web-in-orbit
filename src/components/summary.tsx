@@ -25,12 +25,12 @@ export function Summary() {
     return null
   }
 
-  async function handleDeleteGoalCompletion(id: string) {
-    await deleteGoalCompletion(id)
+  // async function handleDeleteGoalCompletion(id: string) {
+  //   await deleteGoalCompletion(id)
 
-    queryClient.invalidateQueries({ queryKey: ['summary'] })
-    queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
-  }
+  //   queryClient.invalidateQueries({ queryKey: ['summary'] })
+  //   queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
+  // }
 
   const fristDayOfWeek = dayjs().startOf('week').format('D MMM')
   const lastDayOfWeek = dayjs().endOf('week').format('D MMM')
