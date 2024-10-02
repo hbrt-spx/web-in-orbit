@@ -3,7 +3,7 @@ import { OutlineButton } from './outline-button'
 import { getPendingGoals } from '../../http/get-pending-goals'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { createGoalCompletion } from '../../http/create-goal-completion'
-//import { deleteGoal } from '../../http/delete-goal'
+import { deleteGoal } from '../../http/delete-goal'
 import { useState } from 'react'
 
 export function PendingGoals() {
@@ -13,12 +13,11 @@ export function PendingGoals() {
     queryFn: getPendingGoals,
     staleTime: 1000 * 60, // 60 SECONDS
   })
+  const [isDeleteMode, setIsDeleteMode] = useState(false)
 
   if (!data) {
     return null
   }
-
-  const [isDeleteMode, setIsDeleteMode] = useState(false)
 
   const toggleMode = () => {
     setIsDeleteMode(!isDeleteMode)
@@ -31,8 +30,8 @@ export function PendingGoals() {
     queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
   }
 
-  async function handleDeleteGoal() {
-    //await deleteGoal(goalId)
+  async function handleDeleteGoal(goalId: string) {
+    await deleteGoal(goalId)
 
     queryClient.invalidateQueries({ queryKey: ['summary'] })
     queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
@@ -49,7 +48,7 @@ export function PendingGoals() {
                 disabled={goal.completionCount >= goal.desiredWeeklyFrequency}
                 onClick={() =>
                   isDeleteMode
-                    ? handleDeleteGoal()
+                    ? handleDeleteGoal(goal.id)
                     : handleCompleteGoal(goal.id)
                 }
                 className={`${
