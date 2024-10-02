@@ -49,7 +49,7 @@ export function PendingGoals() {
                 disabled={goal.completionCount >= goal.desiredWeeklyFrequency}
                 onClick={() =>
                   isDeleteMode
-                    ? handleDeleteGoal(goal.id)
+                    ? handleDeleteGoal()
                     : handleCompleteGoal(goal.id)
                 }
                 className={`${
