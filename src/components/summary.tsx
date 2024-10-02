@@ -20,7 +20,6 @@ export function Summary() {
     queryFn: getSummary,
     staleTime: 1000 * 60, // 60 SECONDS
   })
-  console.log('test', data)
 
   if (!data) {
     return null
