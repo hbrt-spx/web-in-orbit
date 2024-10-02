@@ -13,7 +13,7 @@ import { deleteGoalCompletion } from '../http/delete-goal-completion'
 
 //dayjs.locale('pt-br')
 
-export function Summary() {
+export async function Summary() {
   const queryClient = useQueryClient()
   const { data } = useQuery({
     queryKey: ['summary'],
