@@ -31,7 +31,7 @@ export function PendingGoals() {
     queryClient.invalidateQueries({ queryKey: ['pending-goals'] })
   }
 
-  async function handleDeleteGoal(goalId: string) {
+  async function handleDeleteGoal() {
     //await deleteGoal(goalId)
 
     queryClient.invalidateQueries({ queryKey: ['summary'] })
