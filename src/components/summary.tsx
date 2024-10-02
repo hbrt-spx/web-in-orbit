@@ -21,6 +21,7 @@ export function Summary() {
     staleTime: 1000 * 60, // 60 SECONDS
   })
 
+  alert('Em manutenção para aplicação de novas funcionalidades')
   if (!data) {
     return null
   }
