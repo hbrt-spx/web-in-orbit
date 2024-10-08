@@ -1,4 +1,4 @@
-import { Plus } from 'lucide-react'
+import { Minus, Plus } from 'lucide-react'
 import { OutlineButton } from './outline-button'
 import { getPendingGoals } from '../../http/get-pending-goals'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
@@ -58,6 +58,7 @@ export function PendingGoals() {
                 }`}
               >
                 {!isDeleteMode && <Plus className="size-4 text-zinc-600" />}
+                {isDeleteMode && < Minus className='size-4 text-red-600'/>}
                 {goal.title}
               </OutlineButton>
             </div>
