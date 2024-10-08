@@ -53,7 +53,7 @@ export function PendingGoals() {
                 }
                 className={`${
                   isDeleteMode
-                    ? 'border-red-500 text-red-500'
+                    ? 'border-red-600 text-red-600 hover:text-red-500 hover:border-red-500'
                     : 'bg-transparent text-gray-300'
                 }`}
               >
@@ -65,12 +65,15 @@ export function PendingGoals() {
         })}
       </div>
 
-      <OutlineButton
-        className="size-[100%] border-zinc-700 hover:border-zinc-600 bg-transparent mt-5 justify-center items-center"
+
+        <div className='flex justify-end items-end size-[100%]'>
+        <OutlineButton
+        className=" border-l size-[20%] border-zinc-800 hover:border-zinc-600 bg-transparent mt-5 justify-center items-end"
         onClick={toggleMode}
       >
-        {isDeleteMode ? 'Cancelar' : 'Deletar Metas'}
+        {isDeleteMode ? 'Cancelar' : "🗑️"}
       </OutlineButton>
+        </div>      
     </div>
   )
 }

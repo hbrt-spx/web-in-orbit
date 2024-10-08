@@ -7,11 +7,11 @@ import { Separator } from './ui/separator'
 import { useQuery, useQueryClient } from '@tanstack/react-query'
 import { getSummary } from '../http/get-summary'
 import dayjs from 'dayjs'
-import '../../node_modules/dayjs/locale/pt-br'
+//import '../../node_modules/dayjs/locale/pt-br'
 import { PendingGoals } from './ui/pending-goals'
 import { deleteGoalCompletion } from '../http/delete-goal-completion'
 
-dayjs.locale('pt-br')
+//dayjs.locale('pt-br')
 
 export function Summary() {
   const queryClient = useQueryClient()
@@ -105,9 +105,9 @@ export function Summary() {
                         <Button
                           key={goal.id}
                           onClick={() => handleDeleteGoalCompletion(goal.id)}
-                          className=" w-0 h-1 rounded-full border-[1px] border-violet-400 bg-transparent text-violet-400 hover:bg-transparent hover:border-violet-600 hover:text-violet-600"
+                          className=" w-0 h-1 rounded-full border-none border-violet-400 bg-transparent text-violet-400 hover:bg-transparent hover:border-violet-600 hover:text-violet-600"
                         >
-                          x
+                          ❌
                         </Button>
                       </li>
                     )
