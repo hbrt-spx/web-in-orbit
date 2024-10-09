@@ -58,7 +58,7 @@ export function PendingGoals() {
                 }`}
               >
                 {!isDeleteMode && <Plus className="size-4 text-zinc-600" />}
-                {isDeleteMode && < Minus className='size-4 text-red-600'/>}
+                {isDeleteMode && <Minus className='size-4 text-red-600'/>}
                 {goal.title}
               </OutlineButton>
             </div>
